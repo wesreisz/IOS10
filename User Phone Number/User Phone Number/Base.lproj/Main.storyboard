@@ -22,8 +22,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFT-AC-Rjq">
-                                <rect key="frame" x="152" y="323" width="71" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="140" y="320" width="95.5" height="27.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -38,15 +38,26 @@
                                     <action selector="addUser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="t6l-mB-Grx"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ua2-lB-mop">
+                                <rect key="frame" x="169" y="355.5" width="38" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="JyS-hG-OMY" secondAttribute="bottom" constant="8" id="770-SR-vGg"/>
                             <constraint firstItem="lFT-AC-Rjq" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="BOO-ch-g5r"/>
                             <constraint firstItem="lFT-AC-Rjq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XCs-ob-U7h"/>
+                            <constraint firstItem="ua2-lB-mop" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aC1-b1-U7l"/>
+                            <constraint firstItem="ua2-lB-mop" firstAttribute="top" secondItem="lFT-AC-Rjq" secondAttribute="bottom" constant="8" id="aEt-N4-2cV"/>
                             <constraint firstAttribute="trailing" secondItem="JyS-hG-OMY" secondAttribute="trailing" constant="8" id="ftW-lV-StV"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="txtPhoneDisplay" destination="ua2-lB-mop" id="7hq-Bn-98b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

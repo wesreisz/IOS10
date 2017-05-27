@@ -21,4 +21,21 @@ class UserModel{
         self.userName = name
         self.userNumber = number
     }
+    
+    init(coder aDecoder: NSCoder!){
+        self.userName = aDecoder.decodeObject(forKey: "userName") as! String
+        self.userNumber = aDecoder.decodeObject(forKey: "userNumber") as! String
+    }
+    
+    func initWithCoder(aDecoder: NSCoder) -> UserModel {
+        self.userName = aDecoder.decodeObject(forKey: "userName") as! String
+        self.userNumber = aDecoder.decodeObject(forKey: "userNumber") as! String
+
+        return self
+    }
+    
+    func encodeWithCoder(aCoder: NSCoder!){
+        aCoder.encode(userName, forKey: "userName")
+        aCoder.encode(userNumber, forKey: "userNumber")
+    }
 }

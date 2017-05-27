@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		61BA70D81ED856AA001094D6 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BA70D71ED856AA001094D6 /* UserModel.swift */; };
+		61BA70DA1ED9C862001094D6 /* UserExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BA70D91ED9C862001094D6 /* UserExtension.swift */; };
 		61E61B491ED8467B003E92FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E61B481ED8467B003E92FB /* AppDelegate.swift */; };
 		61E61B4B1ED8467B003E92FB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E61B4A1ED8467B003E92FB /* ViewController.swift */; };
 		61E61B4E1ED8467B003E92FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61E61B4C1ED8467B003E92FB /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		61BA70D71ED856AA001094D6 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		61BA70D91ED9C862001094D6 /* UserExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserExtension.swift; sourceTree = "<group>"; };
 		61E61B451ED8467B003E92FB /* User Phone Number.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "User Phone Number.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		61E61B481ED8467B003E92FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		61E61B4A1ED8467B003E92FB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -37,6 +39,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		61BA70DB1ED9CACA001094D6 /* actions */ = {
+			isa = PBXGroup;
+			children = (
+				61BA70DC1ED9CAE6001094D6 /* user */,
+			);
+			name = actions;
+			sourceTree = "<group>";
+		};
+		61BA70DC1ED9CAE6001094D6 /* user */ = {
+			isa = PBXGroup;
+			children = (
+				61BA70D91ED9C862001094D6 /* UserExtension.swift */,
+			);
+			name = user;
+			sourceTree = "<group>";
+		};
 		61E61B3C1ED8467B003E92FB = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +74,7 @@
 		61E61B471ED8467B003E92FB /* User Phone Number */ = {
 			isa = PBXGroup;
 			children = (
+				61BA70DB1ED9CACA001094D6 /* actions */,
 				61E61B481ED8467B003E92FB /* AppDelegate.swift */,
 				61E61B4A1ED8467B003E92FB /* ViewController.swift */,
 				61E61B4C1ED8467B003E92FB /* Main.storyboard */,
@@ -141,6 +160,7 @@
 			files = (
 				61E61B4B1ED8467B003E92FB /* ViewController.swift in Sources */,
 				61BA70D81ED856AA001094D6 /* UserModel.swift in Sources */,
+				61BA70DA1ED9C862001094D6 /* UserExtension.swift in Sources */,
 				61E61B491ED8467B003E92FB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
