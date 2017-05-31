@@ -29,6 +29,10 @@ class ViewController: UIViewController {
      - write some kind of winning logic
     */
     
+    @IBAction func resetGame(_ sender: Any) {
+        print("Resetting Game")
+        resetBoard()
+    }
     
     @IBAction func itemSelected(_ sender: Any) {
         let tileNumber = (sender as! UIButton).tag
@@ -62,6 +66,8 @@ class ViewController: UIViewController {
     }
     
     func resetBoard(){
+        playerXTurn = true
+        
         tile_1.setImage(UIImage(named: "blank") as UIImage?, for: .normal)
         tile_2.setImage(UIImage(named: "blank") as UIImage?, for: .normal)
         tile_3.setImage(UIImage(named: "blank") as UIImage?, for: .normal)

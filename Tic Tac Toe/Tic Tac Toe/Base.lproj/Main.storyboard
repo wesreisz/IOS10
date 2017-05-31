@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -127,12 +128,22 @@
                                     <action selector="itemSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Rm-15-vdl"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cD1-fT-kVr">
+                                <rect key="frame" x="16" y="617" width="343" height="30"/>
+                                <state key="normal" title="Reset Game"/>
+                                <connections>
+                                    <action selector="resetGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vUe-ms-bsU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="2nj-x1-y2E" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="32W-ge-Tar"/>
                             <constraint firstItem="NSc-UH-E4p" firstAttribute="leading" secondItem="5CE-Ft-Ffw" secondAttribute="trailing" constant="30.5" id="3Rl-BY-lWm"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="cD1-fT-kVr" secondAttribute="bottom" constant="20" id="4J8-ev-aW6"/>
                             <constraint firstItem="VQc-pd-49U" firstAttribute="leading" secondItem="cis-M9-XAF" secondAttribute="trailing" constant="25.5" id="7f4-pz-ene"/>
+                            <constraint firstItem="cD1-fT-kVr" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="87R-hv-TUw"/>
+                            <constraint firstItem="cD1-fT-kVr" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="BrL-36-5XX"/>
                             <constraint firstItem="cis-M9-XAF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CkI-hv-6AL"/>
                             <constraint firstItem="cJJ-7g-WS6" firstAttribute="top" secondItem="cis-M9-XAF" secondAttribute="bottom" constant="36" id="EUe-kd-FCR"/>
                             <constraint firstItem="NSc-UH-E4p" firstAttribute="top" secondItem="IRv-S5-oDo" secondAttribute="bottom" constant="23" id="EeQ-sh-dJc"/>
@@ -148,7 +159,9 @@
                             <constraint firstItem="2nj-x1-y2E" firstAttribute="top" secondItem="RHw-f6-Dxc" secondAttribute="bottom" constant="25" id="dX9-HL-Seo"/>
                             <constraint firstItem="IRv-S5-oDo" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="f2g-QA-WTy"/>
                             <constraint firstItem="cJJ-7g-WS6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fjS-e6-ixl"/>
+                            <constraint firstItem="cD1-fT-kVr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="gCs-7J-nDe"/>
                             <constraint firstItem="cis-M9-XAF" firstAttribute="leading" secondItem="RHw-f6-Dxc" secondAttribute="trailing" constant="20.5" id="jO6-fd-2MB"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="cD1-fT-kVr" secondAttribute="bottom" constant="20" id="nKV-xA-lXQ"/>
                             <constraint firstItem="8vR-B8-7CL" firstAttribute="top" secondItem="2nj-x1-y2E" secondAttribute="bottom" constant="24" id="ppL-4F-EOR"/>
                         </constraints>
                     </view>
