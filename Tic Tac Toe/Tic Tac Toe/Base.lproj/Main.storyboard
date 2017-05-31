@@ -35,6 +35,9 @@
                                     <constraint firstAttribute="width" constant="93" id="oox-bj-vKa"/>
                                 </constraints>
                                 <state key="normal" title="btn 1" image="cross.png"/>
+                                <connections>
+                                    <action selector="itemSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="O6f-7m-Sy9"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cis-M9-XAF">
                                 <rect key="frame" x="140.5" y="152" width="93" height="97"/>
@@ -43,6 +46,9 @@
                                     <constraint firstAttribute="height" constant="97" id="clQ-AF-VBF"/>
                                 </constraints>
                                 <state key="normal" title="btn 2" image="cross.png"/>
+                                <connections>
+                                    <action selector="itemSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JpA-PQ-XWK"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VQc-pd-49U">
                                 <rect key="frame" x="259" y="152" width="93" height="97"/>
@@ -51,6 +57,9 @@
                                     <constraint firstAttribute="width" constant="93" id="rGI-Z9-YDD"/>
                                 </constraints>
                                 <state key="normal" title="btn 3" image="cross.png"/>
+                                <connections>
+                                    <action selector="itemSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="k4l-dn-qg3"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2nj-x1-y2E">
                                 <rect key="frame" x="22" y="285" width="93" height="97"/>
@@ -59,6 +68,9 @@
                                     <constraint firstAttribute="width" constant="93" id="VQW-kd-Hbh"/>
                                 </constraints>
                                 <state key="normal" title="btn 4" image="cross.png"/>
+                                <connections>
+                                    <action selector="itemSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pdD-1a-3LQ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IRv-S5-oDo">
                                 <rect key="frame" x="266" y="285" width="93" height="97"/>
@@ -67,6 +79,9 @@
                                     <constraint firstAttribute="height" constant="97" id="X5b-9Q-2nT"/>
                                 </constraints>
                                 <state key="normal" title="btn 6" image="cross.png"/>
+                                <connections>
+                                    <action selector="itemSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5UE-1F-Lyg"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8vR-B8-7CL">
                                 <rect key="frame" x="16" y="406" width="93" height="97"/>
@@ -75,6 +90,9 @@
                                     <constraint firstAttribute="width" constant="93" id="m9R-59-9KI"/>
                                 </constraints>
                                 <state key="normal" title="btn 7" image="cross.png"/>
+                                <connections>
+                                    <action selector="itemSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XOk-2n-r7r"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5CE-Ft-Ffw">
                                 <rect key="frame" x="140.5" y="409" width="93" height="97"/>
@@ -83,6 +101,9 @@
                                     <constraint firstAttribute="height" constant="97" id="eeI-pa-dIA"/>
                                 </constraints>
                                 <state key="normal" title="btn 8" image="cross.png"/>
+                                <connections>
+                                    <action selector="itemSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="edp-aE-jcT"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJJ-7g-WS6">
                                 <rect key="frame" x="141" y="285" width="93" height="97"/>
@@ -91,6 +112,9 @@
                                     <constraint firstAttribute="height" constant="97" id="i4D-Cw-Ljw"/>
                                 </constraints>
                                 <state key="normal" title="btn 5" image="cross.png"/>
+                                <connections>
+                                    <action selector="itemSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mR5-5s-c85"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NSc-UH-E4p">
                                 <rect key="frame" x="264" y="405" width="93" height="97"/>
@@ -99,6 +123,9 @@
                                     <constraint firstAttribute="height" constant="97" id="zfD-nM-SfE"/>
                                 </constraints>
                                 <state key="normal" title="btn 9" image="cross.png"/>
+                                <connections>
+                                    <action selector="itemSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Rm-15-vdl"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -125,6 +152,17 @@
                             <constraint firstItem="8vR-B8-7CL" firstAttribute="top" secondItem="2nj-x1-y2E" secondAttribute="bottom" constant="24" id="ppL-4F-EOR"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tile_1" destination="RHw-f6-Dxc" id="Fvl-qU-AdT"/>
+                        <outlet property="tile_2" destination="cis-M9-XAF" id="IZB-1c-lCR"/>
+                        <outlet property="tile_3" destination="VQc-pd-49U" id="hrg-F5-fIM"/>
+                        <outlet property="tile_4" destination="2nj-x1-y2E" id="Tsc-Or-5IH"/>
+                        <outlet property="tile_5" destination="cJJ-7g-WS6" id="k14-hp-mNv"/>
+                        <outlet property="tile_6" destination="IRv-S5-oDo" id="RD8-Hg-fp3"/>
+                        <outlet property="tile_7" destination="8vR-B8-7CL" id="UAl-M4-xBe"/>
+                        <outlet property="tile_8" destination="5CE-Ft-Ffw" id="dSo-5Q-p1t"/>
+                        <outlet property="tile_9" destination="NSc-UH-E4p" id="Dbw-vn-3y9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
