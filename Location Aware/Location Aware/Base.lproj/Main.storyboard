@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Location_Aware" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hwy1bridge.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="YL6-qx-yyu">
+                                <rect key="frame" x="-201" y="-46" width="601" height="758"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="758" id="G56-gf-uWj"/>
+                                    <constraint firstAttribute="width" constant="601" id="gGb-le-p5c"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location Aware" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ccf-Ck-2ty">
+                                <rect key="frame" x="99" y="28" width="177" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="177" id="0Ap-Hd-ZmY"/>
+                                    <constraint firstAttribute="height" constant="21" id="muX-JI-Xfa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uid-8B-hbS">
+                                <rect key="frame" x="16" y="91" width="343" height="524"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Uid-8B-hbS" firstAttribute="top" secondItem="ccf-Ck-2ty" secondAttribute="bottom" constant="42" id="8ya-bN-id4"/>
+                            <constraint firstItem="Uid-8B-hbS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Pw2-cv-CwA"/>
+                            <constraint firstItem="ccf-Ck-2ty" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="83" id="Ql8-5B-J2E"/>
+                            <constraint firstItem="Uid-8B-hbS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Qns-cd-Kfv"/>
+                            <constraint firstAttribute="trailing" secondItem="YL6-qx-yyu" secondAttribute="trailing" constant="-25" id="W8F-Gl-op2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ccf-Ck-2ty" secondAttribute="trailing" constant="83" id="YMy-pd-sTy"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Uid-8B-hbS" secondAttribute="bottom" constant="52" id="dKt-XM-1nX"/>
+                            <constraint firstItem="YL6-qx-yyu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="-201" id="eNN-Ob-VY5"/>
+                            <constraint firstItem="YL6-qx-yyu" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="-46" id="fmD-Q6-5te"/>
+                            <constraint firstAttribute="bottom" secondItem="YL6-qx-yyu" secondAttribute="bottom" constant="-45" id="nEE-XZ-8FL"/>
+                            <constraint firstItem="ccf-Ck-2ty" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sF3-Fu-jAZ"/>
+                            <constraint firstItem="ccf-Ck-2ty" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="sah-IN-TRF"/>
+                            <constraint firstItem="Uid-8B-hbS" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="shQ-jK-hq0"/>
+                            <constraint firstItem="Uid-8B-hbS" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="uTL-BF-UsP"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-79.200000000000003" y="138.98050974512745"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="hwy1bridge.jpg" width="1024" height="591"/>
+    </resources>
+</document>
