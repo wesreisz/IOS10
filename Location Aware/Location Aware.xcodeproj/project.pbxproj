@@ -14,6 +14,7 @@
 		617B988F1EE6D68600D5203C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 617B988D1EE6D68600D5203C /* LaunchScreen.storyboard */; };
 		617B98971EE6D76100D5203C /* hwy1bridge.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 617B98961EE6D76100D5203C /* hwy1bridge.jpg */; };
 		617B98991EE6DCA000D5203C /* UI-Requirement.png in Resources */ = {isa = PBXBuildFile; fileRef = 617B98981EE6DCA000D5203C /* UI-Requirement.png */; };
+		617B989E1EE824E200D5203C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 617B989D1EE824E200D5203C /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		617B98901EE6D68600D5203C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		617B98961EE6D76100D5203C /* hwy1bridge.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = hwy1bridge.jpg; path = ../../../../images/hwy1bridge.jpg; sourceTree = "<group>"; };
 		617B98981EE6DCA000D5203C /* UI-Requirement.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "UI-Requirement.png"; path = "../../../../Desktop/UI-Requirement.png"; sourceTree = "<group>"; };
+		617B989D1EE824E200D5203C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				617B989E1EE824E200D5203C /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +47,7 @@
 			children = (
 				617B98831EE6D68600D5203C /* Location Aware */,
 				617B98821EE6D68600D5203C /* Products */,
+				617B989C1EE824E200D5203C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -68,6 +72,14 @@
 				617B98901EE6D68600D5203C /* Info.plist */,
 			);
 			path = "Location Aware";
+			sourceTree = "<group>";
+		};
+		617B989C1EE824E200D5203C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				617B989D1EE824E200D5203C /* CoreLocation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,6 +319,7 @@
 				617B98951EE6D68600D5203C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

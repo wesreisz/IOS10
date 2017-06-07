@@ -9,3 +9,4 @@ Files for the Complete IOS10 Course on Udemy
 * What's the Weather: Screenscraping app, https://www.evernote.com/l/AGXe4ja7GKpFt4U1AcF9-p13gU5Jkbi492M
 * Tic Tac Toe: Simple Game, https://www.evernote.com/l/AGVG7DlSdHZA4LGMWO-Uam3r4RafKgnxIF4
 * Map Location: Playing with Maps, https://www.evernote.com/l/AGX3KYUWAxZIE7oWrjaTlPnniFf2gX-D0hA
+* Location Aware: Exploring what you get from a location, https://www.evernote.com/l/AGWxZlhEWRdJk4JplRs9HXZGM2WdWJEbu7o
