@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureRecognizerDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureRecognizerDelegate, UIAlertViewDelegate {
     
     /*
     Memoriable Places Requirements:
@@ -83,6 +83,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
         }
     }
     
+    
     func registerEvents(){
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(addAnnotationOnLongPress(gesture:)))
         longPressGesture.minimumPressDuration = 1.0
@@ -98,10 +99,39 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
             let annotation = MKPointAnnotation()
             annotation.coordinate = coordinate
             
-            //TODO: Ask user what the title should be
-            annotation.title = "Title"
-            annotation.subtitle = "One of my Memorable Spots"
-            self.map.addAnnotation(annotation)
+            let txtMarkerName = UITextField()
+            let alert = UIAlertController(title: "Name", message: "What would you like to name this place?", preferredStyle: .alert)
+            
+            alert.addTextField(configurationHandler: {(textField : UITextField!) -> Void in
+                txtMarkerName.placeholder = "eg: Joe's Burgers"
+            })
+            
+            alert.addAction(UIAlertAction(title: "Submit",  style: .default, handler: { _ in
+               
+                if let txtMarkerName = alert.textFields?[0]{
+                    if let name = txtMarkerName.text{
+                        if !name.isEmpty{
+                            print("Adding \(name)")
+                            annotation.title = name
+                            annotation.subtitle = "One of my Memorable Spots"
+                            self.map.addAnnotation(annotation)
+                            
+                            //todo: persist the place to local storage and then add it to the table view
+                        }else{
+                            print("Name entered, not adding place")
+                        }
+                    }
+                }
+ 
+            }))
+ 
+            
+            alert.addAction(UIAlertAction(title: "Cancel",  style: .default, handler: { _ in
+                print("Canceling")
+            }))
+            
+            present(alert, animated: true, completion: nil)
+ 
         }
     }
     
