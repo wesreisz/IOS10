@@ -28,6 +28,12 @@ class UserDefaultUtil{
         UserDefaults.standard.removeObject(forKey: PLACES_ARRAY_KEY)
     }
     
+    static func savePlaces(_ places:[Place]){
+        for var place in places{
+            savePlace(place)
+        }
+    }
+    
     static func savePlace(_ place:Place){
         let defaults = UserDefaults.standard
         var array = defaults.array(forKey: PLACES_ARRAY_KEY)  as? [String] ?? [String]()

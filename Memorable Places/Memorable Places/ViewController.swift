@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureRecognizerDelegate, UIAlertViewDelegate, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureRecognizerDelegate, UIAlertViewDelegate {
     
     /*
     Memoriable Places Requirements:
@@ -25,7 +25,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
      - create an icon for the app
  
     */
-    
     
     @IBOutlet weak var txtInputLocation: UITextField!
     @IBOutlet weak var map: MKMapView!
@@ -56,8 +55,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
         }
         
         registerEvents()
-        places = UserDefaultUtil.loadPlaces()
-        print(places)
     }
 
     override func didReceiveMemoryWarning() {
@@ -153,18 +150,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
             self.map.setRegion(region, animated: true)
             locationManager.stopUpdatingLocation()
         }
-    }
-
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return places.count
-    }
-    
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as UITableViewCell
-        cell.textLabel?.text = "wes"
-        return cell
     }
     
 }
