@@ -10,3 +10,4 @@ Files for the Complete IOS10 Course on Udemy
 * Tic Tac Toe: Simple Game, https://www.evernote.com/l/AGVG7DlSdHZA4LGMWO-Uam3r4RafKgnxIF4
 * Map Location: Playing with Maps, https://www.evernote.com/l/AGX3KYUWAxZIE7oWrjaTlPnniFf2gX-D0hA
 * Location Aware: Exploring what you get from a location, https://www.evernote.com/l/AGWxZlhEWRdJk4JplRs9HXZGM2WdWJEbu7o
+* Memorable Places: Connect all the peices together with location, state, & seques, https://www.evernote.com/l/AGXU-3IgsNhMmp6uM-zD9SkdwoZHBe6Oymo

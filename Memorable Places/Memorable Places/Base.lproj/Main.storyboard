@@ -96,9 +96,15 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Memorable Places" id="7he-5H-Vi4">
+                        <barButtonItem key="leftBarButtonItem" title="Clear" id="PtX-aJ-4ol">
+                            <connections>
+                                <action selector="clearPlacesClicked:" destination="74L-Jq-kId" id="MbV-WS-9KD"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="8em-GI-swa">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" id="fCO-Gk-kma"/>
+                                <action selector="addNewLocationClicked:" destination="74L-Jq-kId" id="Db9-m4-DNW"/>
+                                <segue destination="BYZ-38-t0r" kind="show" identifier="segueToMap" id="fCO-Gk-kma"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

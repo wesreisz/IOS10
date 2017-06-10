@@ -24,14 +24,30 @@ class UserDefaultUtil{
         return placesArray
     }
     
-    static func flushCache(){
-        UserDefaults.standard.removeObject(forKey: PLACES_ARRAY_KEY)
+    static func getPlace(ByName name:String)->Place{
+        let places = loadPlaces()
+        
+        for var place in places{
+            if place.name.lowercased()==name.lowercased(){
+                return place
+            }
+        }
+        
+        return Place()
+    }
+    
+    static func getPlace(ByPosition:Int)->Place{
+        let places = loadPlaces()
+        return places[ByPosition]
     }
     
     static func savePlaces(_ places:[Place]){
+        flushCache()
+        var array = [String]()
         for var place in places{
-            savePlace(place)
+            array.append("\(place.name)|\(place.latitude)|\(place.longitude)")
         }
+        UserDefaults.standard.set(array, forKey: PLACES_ARRAY_KEY)
     }
     
     static func savePlace(_ place:Place){
@@ -40,5 +56,10 @@ class UserDefaultUtil{
         array.append("\(place.name)|\(place.latitude)|\(place.longitude)")
         defaults.set(array, forKey: PLACES_ARRAY_KEY)
     }
+    
+    static func flushCache(){
+        UserDefaults.standard.removeObject(forKey: PLACES_ARRAY_KEY)
+    }
+
 
 }

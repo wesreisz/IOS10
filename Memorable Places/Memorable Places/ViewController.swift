@@ -18,10 +18,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
      - long press to drop a marker for a memorable location (done)
      - Ask the user what the title of the memorable location is (done)
      - persist saved markers to system memory (done)
-     - show all items from system memory on the table view when the app starts
-     - when a user clicks on an item directly in the table view, load that item into the mapview
-     - swip to remove the item from the table view
-     - design the table view cell to be nicer than the basic look
+     - show all items from system memory on the table view when the app starts (done)
+     - when a user clicks on an item directly in the table view, load that item into the mapview (done)
+     - swip to remove the item from the table view (done)
      - create an icon for the app
  
     */
@@ -29,8 +28,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
     @IBOutlet weak var txtInputLocation: UITextField!
     @IBOutlet weak var map: MKMapView!
     
+    let subTitle = "One of my Memorable Spots"
+    
     let locationManager = CLLocationManager()
     var places = [Place]()
+    var place2load = Place()
+    
+    
     
     @IBAction func findLocationPressed(_ sender: Any) {
         guard let location2find = txtInputLocation.text else{
@@ -48,10 +52,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
         self.locationManager.requestAlwaysAuthorization()
         self.locationManager.requestWhenInUseAuthorization()
         
-        if CLLocationManager.locationServicesEnabled() {
+        if CLLocationManager.locationServicesEnabled() && place2load.name == ""{
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
+        }else{
+            loadKnownPlace(place2load)
         }
         
         registerEvents()
@@ -62,27 +68,48 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
         // Dispose of any resources that can be recreated.
     }
     
+    func loadKnownPlace(_ place:Place){
+        let annotation = MKPointAnnotation()
+        let coordinate = CLLocationCoordinate2D(latitude: place.latitude, longitude: place.longitude)
+        txtInputLocation.text = place.name
+        
+        annotation.title = place.name
+        annotation.subtitle = subTitle
+        annotation.coordinate = coordinate
+        
+        let center = CLLocationCoordinate2D(latitude: (place.latitude), longitude: (place.longitude))
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
+        
+        self.map.addAnnotation(annotation)
+        self.map.setRegion(region, animated: true)
+    }
+    
     internal func findLocation(forLocation: String){
 
         print("find \(forLocation)")
-            
-        CLGeocoder().geocodeAddressString(forLocation){
-            placemarks , error in
-            if error != nil{
-                print("Geo Location failed")
-                return
-            }
+        
+        let place = UserDefaultUtil.getPlace(ByName: forLocation)
+        
+        if place.name != "" {
+            loadKnownPlace(place)
+        }else{
+            CLGeocoder().geocodeAddressString(forLocation){
+                placemarks , error in
+                if error != nil{
+                    print("Geo Location failed")
+                    return
+                }
                 
-            if (placemarks?.count)!>0{
-                let placemark = placemarks![0]
+                if (placemarks?.count)!>0{
+                    let placemark = placemarks![0]
                     
-                let center = CLLocationCoordinate2D(latitude: (placemark.location?.coordinate.latitude)!, longitude: (placemark.location?.coordinate.longitude)!)
-                let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
+                    let center = CLLocationCoordinate2D(latitude: (placemark.location?.coordinate.latitude)!, longitude: (placemark.location?.coordinate.longitude)!)
+                    let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
                     
-                self.map.setRegion(region, animated: true)
+                    self.map.setRegion(region, animated: true)
+                }
             }
-                
-        }
+        }   
     }
     
     
@@ -115,10 +142,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
                         if !name.isEmpty{
                             print("Adding \(name)")
                             annotation.title = name
-                            annotation.subtitle = "One of my Memorable Spots"
+                            annotation.subtitle = self.subTitle
                             self.map.addAnnotation(annotation)
                             
                             let place = Place(WithName: name, WithLatitude: annotation.coordinate.latitude, WithLongitude: annotation.coordinate.longitude)
+                            
                             UserDefaultUtil.savePlace(place)
                         }else{
                             print("Name entered, not adding place")

@@ -10,20 +10,48 @@ import UIKit
 
 class PlacesViewController: UITableViewController  {
     
+    var rowNumberPressed:Int = 0
+    var loadPlace = false
     var places = [Place]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        loadPlace = false
         places = UserDefaultUtil.loadPlaces()
         print(places)
+        
+        tableView.reloadData()
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        places = UserDefaultUtil.loadPlaces()
+        tableView.reloadData()
+    }
+    
+    @IBAction func addNewLocationClicked(_ sender: Any) {
+        loadPlace = false
+    }
+    
+    @IBAction func clearPlacesClicked(_ sender: Any) {
+        loadPlace = false
+        UserDefaultUtil.flushCache()
+        places = UserDefaultUtil.loadPlaces()
+        tableView.reloadData()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier=="segueToMap" && loadPlace){
+            var viewController = segue.destination as! ViewController
+            viewController.place2load = places[rowNumberPressed]
+        }
+    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return places.count
@@ -44,8 +72,14 @@ class PlacesViewController: UITableViewController  {
         if (editingStyle == UITableViewCellEditingStyle.delete) {
             places.remove(at: indexPath.row)
             UserDefaultUtil.savePlaces(places)
+            print("places count: \(places.count)")
             tableView.reloadData()
         }
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        rowNumberPressed = indexPath.row
+        loadPlace = true
+        performSegue(withIdentifier: "segueToMap", sender: self)    }
 
 }
