@@ -9,15 +9,15 @@
 import UIKit
 import MapKit
 
-class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureRecognizerDelegate, UIAlertViewDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureRecognizerDelegate, UIAlertViewDelegate, UITableViewDelegate, UITableViewDataSource {
     
     /*
     Memoriable Places Requirements:
      - center map if no location is passed (done)
      - locate an address and center map (done)
      - long press to drop a marker for a memorable location (done)
-     - Ask the user what the title of the memorable location is
-     - persist saved markers to system memory
+     - Ask the user what the title of the memorable location is (done)
+     - persist saved markers to system memory (done)
      - show all items from system memory on the table view when the app starts
      - when a user clicks on an item directly in the table view, load that item into the mapview
      - swip to remove the item from the table view
@@ -31,6 +31,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
     @IBOutlet weak var map: MKMapView!
     
     let locationManager = CLLocationManager()
+    var places = [Place]()
     
     @IBAction func findLocationPressed(_ sender: Any) {
         guard let location2find = txtInputLocation.text else{
@@ -39,9 +40,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
         
         findLocation(forLocation: location2find)
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //flushCache()
         
         self.locationManager.requestAlwaysAuthorization()
         self.locationManager.requestWhenInUseAuthorization()
@@ -53,6 +56,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
         }
         
         registerEvents()
+        places = UserDefaultUtil.loadPlaces()
+        print(places)
     }
 
     override func didReceiveMemoryWarning() {
@@ -116,7 +121,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
                             annotation.subtitle = "One of my Memorable Spots"
                             self.map.addAnnotation(annotation)
                             
-                            //todo: persist the place to local storage and then add it to the table view
+                            let place = Place(WithName: name, WithLatitude: annotation.coordinate.latitude, WithLongitude: annotation.coordinate.longitude)
+                            UserDefaultUtil.savePlace(place)
                         }else{
                             print("Name entered, not adding place")
                         }
@@ -147,6 +153,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
             self.map.setRegion(region, animated: true)
             locationManager.stopUpdatingLocation()
         }
+    }
+
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        return places.count
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as UITableViewCell
+        cell.textLabel?.text = "wes"
+        return cell
     }
     
 }

@@ -4,7 +4,7 @@
 <dict>
 	<key>NSLocationUsageDescription</key>
 	<string>Offers Location Services</string>
-	<key>NSLocationAlwaysUsageDescription</key>
+	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Used to Location Your Current Location</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
