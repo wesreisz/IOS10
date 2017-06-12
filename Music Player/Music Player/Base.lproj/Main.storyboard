@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Music_Player" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fgY-gQ-sod">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="hAe-3o-n5K"/>
+                                    <barButtonItem systemItem="pause" id="ZN1-xv-3sE">
+                                        <connections>
+                                            <action selector="pauseButton:" destination="BYZ-38-t0r" id="9I1-Ko-GxJ"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="100" style="plain" systemItem="fixedSpace" id="SKL-ah-YMc"/>
+                                    <barButtonItem systemItem="play" id="Ej2-mE-CAK">
+                                        <connections>
+                                            <action selector="playButton:" destination="BYZ-38-t0r" id="1pX-Mt-yY6"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="68" style="plain" systemItem="fixedSpace" id="N5K-fr-wqf"/>
+                                    <barButtonItem systemItem="stop" id="cKC-Zy-EhT">
+                                        <connections>
+                                            <action selector="stopButton:" destination="BYZ-38-t0r" id="a3A-Ra-5Sy"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yMx-Mv-F9E">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Podcast Player" id="6xm-9o-tRI"/>
+                                </items>
+                            </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="podcast-symbol8.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="8BV-hM-Cu5">
+                                <rect key="frame" x="67" y="210" width="240" height="247"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="9aL-pw-T79"/>
+                                    <constraint firstAttribute="height" constant="247" id="hWS-df-ELh"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9OI-ok-KNU">
+                                <rect key="frame" x="16" y="478" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="IUw-2D-aL6">
+                                <rect key="frame" x="14" y="576" width="347" height="31"/>
+                                <connections>
+                                    <action selector="scrubberChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="VFy-ei-mQQ"/>
+                                </connections>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="xdp-lf-ZLV">
+                                <rect key="frame" x="14" y="78" width="347" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="AKa-7a-k4m"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="volumeAdjust:" destination="BYZ-38-t0r" eventType="valueChanged" id="dC2-HG-Z4W"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Volume" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V44-Z2-CCD">
+                                <rect key="frame" x="16" y="49" width="58" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="ENI-BX-MOU"/>
+                                    <constraint firstAttribute="width" constant="58" id="GeL-5B-p1z"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="22w-Wc-c1f">
+                                <rect key="frame" x="16" y="550" width="343" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="xdp-lf-ZLV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="0Pd-lM-rJW"/>
+                            <constraint firstItem="22w-Wc-c1f" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="959-QT-86j"/>
+                            <constraint firstItem="8BV-hM-Cu5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ao2-2S-lY2"/>
+                            <constraint firstItem="xdp-lf-ZLV" firstAttribute="top" secondItem="yMx-Mv-F9E" secondAttribute="bottom" constant="34" id="B2Q-T6-huh"/>
+                            <constraint firstItem="xdp-lf-ZLV" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="FCm-sw-LLg"/>
+                            <constraint firstItem="IUw-2D-aL6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Kbo-ZB-FQR"/>
+                            <constraint firstItem="9OI-ok-KNU" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Kex-mb-VEB"/>
+                            <constraint firstItem="fgY-gQ-sod" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="N4F-E8-Ld6"/>
+                            <constraint firstItem="IUw-2D-aL6" firstAttribute="top" secondItem="22w-Wc-c1f" secondAttribute="bottom" constant="8" id="Nml-gP-gWd"/>
+                            <constraint firstItem="22w-Wc-c1f" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="SFh-Lx-raJ"/>
+                            <constraint firstItem="9OI-ok-KNU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Us7-ah-34I"/>
+                            <constraint firstItem="9OI-ok-KNU" firstAttribute="top" secondItem="8BV-hM-Cu5" secondAttribute="bottom" constant="21" id="VQV-TB-DKb"/>
+                            <constraint firstItem="IUw-2D-aL6" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="bmJ-d6-wdy"/>
+                            <constraint firstItem="8BV-hM-Cu5" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="cpI-sa-Kaq"/>
+                            <constraint firstItem="V44-Z2-CCD" firstAttribute="top" secondItem="yMx-Mv-F9E" secondAttribute="bottom" constant="5" id="g6n-kG-nSD"/>
+                            <constraint firstItem="V44-Z2-CCD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="iej-Jd-Xym"/>
+                            <constraint firstItem="fgY-gQ-sod" firstAttribute="top" secondItem="IUw-2D-aL6" secondAttribute="bottom" constant="17" id="m1j-LM-eGp"/>
+                            <constraint firstAttribute="trailing" secondItem="fgY-gQ-sod" secondAttribute="trailing" id="sIl-mB-x0C"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fgY-gQ-sod" secondAttribute="bottom" id="wfh-MA-mga"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="fileName" destination="9OI-ok-KNU" id="cDL-th-7mr"/>
+                        <outlet property="image" destination="8BV-hM-Cu5" id="FAz-Ko-r1a"/>
+                        <outlet property="scrubber" destination="IUw-2D-aL6" id="3ZA-9u-Dne"/>
+                        <outlet property="timerDisplay" destination="22w-Wc-c1f" id="eKc-vI-0s0"/>
+                        <outlet property="volume" destination="xdp-lf-ZLV" id="lgG-o2-9vV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="140" y="137.18140929535232"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="podcast-symbol8.jpg" width="400" height="439"/>
+    </resources>
+</document>
