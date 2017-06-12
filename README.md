@@ -11,3 +11,4 @@ Files for the Complete IOS10 Course on Udemy
 * Map Location: Playing with Maps, https://www.evernote.com/l/AGX3KYUWAxZIE7oWrjaTlPnniFf2gX-D0hA
 * Location Aware: Exploring what you get from a location, https://www.evernote.com/l/AGWxZlhEWRdJk4JplRs9HXZGM2WdWJEbu7o
 * Memorable Places: Connect all the peices together with location, state, & seques, https://www.evernote.com/l/AGXU-3IgsNhMmp6uM-zD9SkdwoZHBe6Oymo
+* Podcast Player: Simple AVPlayer for a local mp3 file, https://www.evernote.com/l/AGUsK8fquG9JkZDtRLGrzS_8P-if1n4kRlI
