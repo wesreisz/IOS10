@@ -296,6 +296,7 @@
                     </view>
                     <connections>
                         <outlet property="lblMessage" destination="MHE-0q-jmK" id="eW7-1N-DE6"/>
+                        <outlet property="lblPageTitle" destination="V9K-va-roF" id="SqK-UC-3CM"/>
                         <outlet property="txtFirstName" destination="clr-kg-Oah" id="VN3-Wg-lyn"/>
                         <outlet property="txtLastName" destination="Kut-SR-Vg6" id="zsg-gV-ZZG"/>
                         <outlet property="txtPassword" destination="2Tm-ic-mCy" id="JAI-HO-PEg"/>
@@ -346,13 +347,23 @@
                                     <segue destination="BYZ-38-t0r" kind="show" id="DwL-Ay-w8s"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jZt-PG-z8y">
+                                <rect key="frame" x="272" y="28" width="87" height="30"/>
+                                <state key="normal" title="Edit Account"/>
+                                <connections>
+                                    <action selector="editAccountClicked:" destination="NsI-zi-O3A" eventType="touchUpInside" id="Uys-VI-dAc"/>
+                                    <segue destination="exo-4j-Zmq" kind="show" identifier="editAccountSegue" id="Oq7-jd-g0h"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ogT-1r-Fod" firstAttribute="leading" secondItem="wTy-yD-mph" secondAttribute="leadingMargin" id="2ix-lv-nVb"/>
                             <constraint firstItem="nbl-wO-J8D" firstAttribute="top" secondItem="iPN-Xf-D2f" secondAttribute="bottom" constant="8" id="8Ow-QD-1aN"/>
                             <constraint firstItem="ogT-1r-Fod" firstAttribute="trailing" secondItem="wTy-yD-mph" secondAttribute="trailingMargin" id="9Wb-fo-wfS"/>
+                            <constraint firstItem="jZt-PG-z8y" firstAttribute="top" secondItem="5VL-05-qbZ" secondAttribute="bottom" constant="8" id="EeX-gd-hA2"/>
                             <constraint firstItem="ogT-1r-Fod" firstAttribute="top" secondItem="gUg-kB-jcG" secondAttribute="bottom" constant="52" id="FyR-Cz-KBO"/>
+                            <constraint firstItem="jZt-PG-z8y" firstAttribute="trailing" secondItem="wTy-yD-mph" secondAttribute="trailingMargin" id="bK7-54-arp"/>
                             <constraint firstItem="gUg-kB-jcG" firstAttribute="centerX" secondItem="wTy-yD-mph" secondAttribute="centerX" id="bwE-Mu-hg1"/>
                             <constraint firstItem="gUg-kB-jcG" firstAttribute="top" secondItem="5VL-05-qbZ" secondAttribute="bottom" constant="26" id="oFb-VL-fUs"/>
                             <constraint firstItem="iPN-Xf-D2f" firstAttribute="centerX" secondItem="wTy-yD-mph" secondAttribute="centerX" id="xOK-Lc-5zw"/>
@@ -369,5 +380,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="rdU-cZ-9c1"/>
+        <segue reference="Oq7-jd-g0h"/>
     </inferredMetricsTieBreakers>
 </document>

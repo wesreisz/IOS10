@@ -21,6 +21,8 @@ class MainViewController: UIViewController {
         
     }
     
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -31,4 +33,7 @@ class MainViewController: UIViewController {
         authUser = UserDTO()
     }
     
+    @IBAction func editAccountClicked(_ sender: Any) {
+        print("Editting Account")
+    }
 }

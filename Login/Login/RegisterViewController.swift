@@ -16,7 +16,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var txtUserName: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var lblMessage: UILabel!
-    
+    @IBOutlet weak var lblPageTitle: UILabel!
     
     @IBAction func createClicked(_ sender: Any) {
         guard let firstName = txtFirstName.text else{ return}
@@ -42,6 +42,9 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        //if a segue was called to get her from the edit account page, change the title of the page to edit and load the account from the data storage. 
+        //if create an account is called make it blank.
         
     }
     
