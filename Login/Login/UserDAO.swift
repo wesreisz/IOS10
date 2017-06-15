@@ -20,7 +20,7 @@ class UserDAO{
         
         let context = self.appDelegate.persistentContainer.viewContext
         
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: LoginConstants.USER_TABLE)
         request.returnsObjectsAsFaults = false
         do{
             let results = try context.fetch(request)
@@ -29,31 +29,35 @@ class UserDAO{
             
             if results.count>0{
                 for result in results as! [NSManagedObject]{
-                    
                     guard let usrName = result.value(forKey: "userName") else {
                         print("No Username found")
                         return (false, UserDTO())
                     }
-                    
-                    guard let firstName = result.value(forKey: "firstName") else{
-                        print("No first name found")
-                        return (false, UserDTO())
-                    }
-                    guard let lastName = result.value(forKey: "lastName") else{
-                        print("No last name found")
+                    guard let pass = result.value(forKey: "pass") else {
+                        print("No Password found")
                         return (false, UserDTO())
                     }
                     
-                    usr.firstName = firstName as! String
-                    usr.lastName = lastName as! String
-                    usr.userName = usrName as! String
-                    
-                    usr.fullName = usr.firstName + " " + usr.lastName
-                    
-                    continue
+                    if String(describing: usrName)==usrname && String(describing: pass)==password{
+                        guard let firstName = result.value(forKey: "firstName") else{
+                            print("No first name found")
+                            return (false, UserDTO())
+                        }
+                        guard let lastName = result.value(forKey: "lastName") else{
+                            print("No last name found")
+                            return (false, UserDTO())
+                        }
+                        
+                        
+                        usr.firstName = firstName as! String
+                        usr.lastName = lastName as! String
+                        usr.userName = usrName as! String
+                        
+                        usr.fullName = usr.firstName + " " + usr.lastName
+                        
+                        return (true, usr)
+                    }
                 }
-                
-                return (true, usr)
             }else{
                 print("No Data Found")
                 return (false, UserDTO())
@@ -62,6 +66,8 @@ class UserDAO{
             print("Unable to fetch data")
             return (false, UserDTO())
         }
+        
+        return (false, UserDTO())
     }
     
     func createUser(withFirstName firstName:String,
@@ -70,7 +76,7 @@ class UserDAO{
                     withPass pass:String) -> Bool{
         let context = self.appDelegate.persistentContainer.viewContext
         
-        let newUser = NSEntityDescription.insertNewObject(forEntityName: "user", into: context)
+        let newUser = NSEntityDescription.insertNewObject(forEntityName: LoginConstants.USER_TABLE, into: context)
         newUser.setValue(usrName, forKey: "userName")
         newUser.setValue(firstName, forKey: "firstName")
         newUser.setValue(lastName, forKey: "lastName")

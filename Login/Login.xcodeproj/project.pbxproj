@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6141D5581EF15A9C00CAFE23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6141D5571EF15A9C00CAFE23 /* AppDelegate.swift */; };
-		6141D55A1EF15A9C00CAFE23 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6141D5591EF15A9C00CAFE23 /* ViewController.swift */; };
+		6141D55A1EF15A9C00CAFE23 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6141D5591EF15A9C00CAFE23 /* LoginViewController.swift */; };
 		6141D55D1EF15A9C00CAFE23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6141D55B1EF15A9C00CAFE23 /* Main.storyboard */; };
 		6141D5601EF15A9C00CAFE23 /* Login.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6141D55E1EF15A9C00CAFE23 /* Login.xcdatamodeld */; };
 		6141D5621EF15A9C00CAFE23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6141D5611EF15A9C00CAFE23 /* Assets.xcassets */; };
@@ -17,12 +17,13 @@
 		6141D56F1EF164E000CAFE23 /* UserDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6141D56E1EF164E000CAFE23 /* UserDAO.swift */; };
 		6141D5711EF1655000CAFE23 /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6141D5701EF1655000CAFE23 /* UserDTO.swift */; };
 		6141D5731EF16AF500CAFE23 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6141D5721EF16AF500CAFE23 /* RegisterViewController.swift */; };
+		61B2B62E1EF2B25300CBF751 /* LoginConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B2B62D1EF2B25300CBF751 /* LoginConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6141D5541EF15A9C00CAFE23 /* Login.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Login.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6141D5571EF15A9C00CAFE23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6141D5591EF15A9C00CAFE23 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6141D5591EF15A9C00CAFE23 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6141D55C1EF15A9C00CAFE23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6141D55F1EF15A9C00CAFE23 /* Login.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Login.xcdatamodel; sourceTree = "<group>"; };
 		6141D5611EF15A9C00CAFE23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -32,6 +33,7 @@
 		6141D56E1EF164E000CAFE23 /* UserDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDAO.swift; sourceTree = "<group>"; };
 		6141D5701EF1655000CAFE23 /* UserDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
 		6141D5721EF16AF500CAFE23 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		61B2B62D1EF2B25300CBF751 /* LoginConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				6141D5631EF15A9C00CAFE23 /* LaunchScreen.storyboard */,
 				6141D5661EF15A9C00CAFE23 /* Info.plist */,
 				6141D55E1EF15A9C00CAFE23 /* Login.xcdatamodeld */,
+				61B2B62D1EF2B25300CBF751 /* LoginConstants.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -81,7 +84,7 @@
 		6141D5741EF16BE200CAFE23 /* login */ = {
 			isa = PBXGroup;
 			children = (
-				6141D5591EF15A9C00CAFE23 /* ViewController.swift */,
+				6141D5591EF15A9C00CAFE23 /* LoginViewController.swift */,
 			);
 			name = login;
 			sourceTree = "<group>";
@@ -183,11 +186,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6141D55A1EF15A9C00CAFE23 /* ViewController.swift in Sources */,
+				6141D55A1EF15A9C00CAFE23 /* LoginViewController.swift in Sources */,
 				6141D5581EF15A9C00CAFE23 /* AppDelegate.swift in Sources */,
 				6141D5731EF16AF500CAFE23 /* RegisterViewController.swift in Sources */,
 				6141D5711EF1655000CAFE23 /* UserDTO.swift in Sources */,
 				6141D5601EF15A9C00CAFE23 /* Login.xcdatamodeld in Sources */,
+				61B2B62E1EF2B25300CBF751 /* LoginConstants.swift in Sources */,
 				6141D56F1EF164E000CAFE23 /* UserDAO.swift in Sources */,
 				6141D56D1EF15E0600CAFE23 /* MainViewController.swift in Sources */,
 			);
@@ -351,6 +355,7 @@
 				6141D56B1EF15A9C00CAFE23 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -10,7 +10,7 @@ import UIKit
 
 var authUser:UserDTO = UserDTO()
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController {
     
     @IBOutlet weak var txtUserName: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
@@ -20,6 +20,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         lblMessages.text = ""
+        txtPassword.text = ""
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,6 +30,7 @@ class ViewController: UIViewController {
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         print("Calling seqway: \(identifier)")
+        
         if identifier=="loginSeqway"{
             return checkLogin()
         }else{
@@ -38,11 +40,11 @@ class ViewController: UIViewController {
     }
     
     internal func checkLogin() -> Bool{
-        guard let usrnm = txtUserName.text else {
+        guard let usrnm = txtUserName.text, !usrnm.isEmpty else {
             lblMessages.text = "Please Enter a User Name"
             return false
         }
-        guard let pass = txtPassword.text else{
+        guard let pass = txtPassword.text, !pass.isEmpty else{
             lblMessages.text = "Please Enter a Password"
             return false
         }
