@@ -21,6 +21,7 @@ class UserDAO{
         let context = self.appDelegate.persistentContainer.viewContext
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: LoginConstants.USER_TABLE)
+        request.predicate = NSPredicate(format: "userName = %@ && pass = %@", usrname, password)
         request.returnsObjectsAsFaults = false
         do{
             let results = try context.fetch(request)
@@ -28,38 +29,34 @@ class UserDAO{
             let usr = UserDTO()
             
             if results.count>0{
+                print("User Found")
                 for result in results as! [NSManagedObject]{
                     guard let usrName = result.value(forKey: "userName") else {
                         print("No Username found")
                         return (false, UserDTO())
                     }
-                    guard let pass = result.value(forKey: "pass") else {
-                        print("No Password found")
+                    
+                    guard let firstName = result.value(forKey: "firstName") else{
+                        print("No first name found")
+                        return (false, UserDTO())
+                    }
+                    guard let lastName = result.value(forKey: "lastName") else{
+                        print("No last name found")
                         return (false, UserDTO())
                     }
                     
-                    if String(describing: usrName)==usrname && String(describing: pass)==password{
-                        guard let firstName = result.value(forKey: "firstName") else{
-                            print("No first name found")
-                            return (false, UserDTO())
-                        }
-                        guard let lastName = result.value(forKey: "lastName") else{
-                            print("No last name found")
-                            return (false, UserDTO())
-                        }
-                        
-                        
-                        usr.firstName = firstName as! String
-                        usr.lastName = lastName as! String
-                        usr.userName = usrName as! String
-                        
-                        usr.fullName = usr.firstName + " " + usr.lastName
-                        
-                        return (true, usr)
-                    }
+                    
+                    usr.firstName = firstName as! String
+                    usr.lastName = lastName as! String
+                    usr.userName = usrName as! String
+                    
+                    usr.fullName = usr.firstName + " " + usr.lastName
+                    
+                    return (true, usr)
+
                 }
             }else{
-                print("No Data Found")
+                print("User Not Found")
                 return (false, UserDTO())
             }
         }catch{
