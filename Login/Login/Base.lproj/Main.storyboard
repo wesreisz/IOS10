@@ -88,7 +88,7 @@
                                 <rect key="frame" x="212" y="222" width="57" height="30"/>
                                 <state key="normal" title="Register"/>
                                 <connections>
-                                    <segue destination="exo-4j-Zmq" kind="show" id="yze-Tw-H9D"/>
+                                    <segue destination="exo-4j-Zmq" kind="show" identifier="registerSegway" id="yze-Tw-H9D"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -214,7 +214,7 @@
                                 <rect key="frame" x="220" y="376" width="48" height="30"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="showLogin" id="rdU-cZ-9c1"/>
+                                    <action selector="cancelClicked:" destination="exo-4j-Zmq" eventType="touchUpInside" id="8t5-YB-gkg"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4QU-Kb-St2">
@@ -301,11 +301,13 @@
                         <outlet property="txtLastName" destination="Kut-SR-Vg6" id="zsg-gV-ZZG"/>
                         <outlet property="txtPassword" destination="2Tm-ic-mCy" id="JAI-HO-PEg"/>
                         <outlet property="txtUserName" destination="fDr-hB-lrs" id="d1h-HM-9KF"/>
+                        <segue destination="NsI-zi-O3A" kind="show" identifier="mainSegway" id="zbN-aa-PSA"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="showLogin" id="Eam-gb-6d0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LiY-dW-yt8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-433" y="887"/>
+            <point key="canvasLocation" x="574" y="1022"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="dLK-We-kYh">
@@ -375,11 +377,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNs-nN-AVv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="793" y="139"/>
+            <point key="canvasLocation" x="1282" y="139"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="rdU-cZ-9c1"/>
+        <segue reference="Eam-gb-6d0"/>
         <segue reference="Oq7-jd-g0h"/>
+        <segue reference="5CO-Jw-dRV"/>
     </inferredMetricsTieBreakers>
 </document>
