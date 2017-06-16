@@ -18,7 +18,6 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         lblUserName.text = authUser.fullName
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -31,4 +30,17 @@ class MainViewController: UIViewController {
         authUser = UserDTO()
     }
     
+    @IBAction func editAccountClicked(_ sender: Any) {
+        print("Editting Account")
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        //set the target controller to edit
+        if segue.identifier == "editAccountSegue"{
+            let controller = segue.destination as! RegisterViewController
+            controller.action = "edit"
+            
+        }
+    }
 }
