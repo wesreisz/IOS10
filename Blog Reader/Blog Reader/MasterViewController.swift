@@ -41,19 +41,12 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     func insertNewObject(_ sender: Any) {
         let context = self.fetchedResultsController.managedObjectContext
         let newEvent = Event(context: context)
-             
-        // If appropriate, configure the new managed object.
+        
         newEvent.timestamp = NSDate()
+        newEvent.title = "Title Placeholder"
+        newEvent.eventDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam rutrum metus at ex cursus, sodales vestibulum lorem tincidunt. Nam vitae consequat sapien, ultricies rhoncus tellus. Aliquam facilisis dapibus mauris non euismod. Maecenas gravida quam lacus, finibus dictum nisi molestie eget. Mauris convallis vestibulum aliquam. Vestibulum tempor erat et purus dapibus, rhoncus gravida sapien cursus. Donec aliquam dictum odio, ac tempor dolor imperdiet eget. Morbi posuere quam sit amet enim pellentesque, vel posuere lectus lobortis. Ut ornare in lectus sagittis blandit. Vestibulum porttitor hendrerit velit ut molestie. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer at ultricies dui, ac elementum mauris. In dictum gravida purus. Pellentesque vitae rutrum nisl."
 
-        // Save the context.
-        do {
-            try context.save()
-        } catch {
-            // Replace this implementation with code to handle the error appropriately.
-            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            let nserror = error as NSError
-            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-        }
+        EventDAO().insertEvent(newEvent)
     }
 
     // MARK: - Segues
@@ -82,7 +75,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! BlogPostTableViewCell
         let event = fetchedResultsController.object(at: indexPath)
         configureCell(cell, withEvent: event)
         return cell
@@ -109,8 +102,10 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         }
     }
 
-    func configureCell(_ cell: UITableViewCell, withEvent event: Event) {
-        cell.textLabel!.text = event.timestamp!.description
+    func configureCell(_ cell: BlogPostTableViewCell, withEvent event: Event) {
+        cell.postDate!.text = event.timestamp!.description
+        cell.postTitle!.text = event.title
+        cell.postDescription!.text = event.eventDescription
     }
 
     // MARK: - Fetched results controller
@@ -136,6 +131,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         aFetchedResultsController.delegate = self
         _fetchedResultsController = aFetchedResultsController
         
+        //should return a list of events
         do {
             try _fetchedResultsController!.performFetch()
         } catch {
@@ -171,9 +167,9 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             case .delete:
                 tableView.deleteRows(at: [indexPath!], with: .fade)
             case .update:
-                configureCell(tableView.cellForRow(at: indexPath!)!, withEvent: anObject as! Event)
+                configureCell(tableView.cellForRow(at: indexPath!)! as! BlogPostTableViewCell, withEvent: anObject as! Event)
             case .move:
-                configureCell(tableView.cellForRow(at: indexPath!)!, withEvent: anObject as! Event)
+                configureCell(tableView.cellForRow(at: indexPath!)! as! BlogPostTableViewCell, withEvent: anObject as! Event)
                 tableView.moveRow(at: indexPath!, to: newIndexPath!)
         }
     }
