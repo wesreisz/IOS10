@@ -6,8 +6,9 @@
 //  Copyright © 2017 Wesley Reisz. All rights reserved.
 
 //  todo: reset this key after complete.
-//  https://www.googleapis.com/blogger/v3/blogs/2399953?key=AIzaSyArNaYx5m9W-BZek2zeOvyuUel0X5ESD1E
-//  12:37 in the video
+//  blog: https://www.googleapis.com/blogger/v3/blogs/10861780?key=AIzaSyArNaYx5m9W-BZek2zeOvyuUel0X5ESD1E
+//  posts: https://www.googleapis.com/blogger/v3/blogs/10861780/posts?key=AIzaSyArNaYx5m9W-BZek2zeOvyuUel0X5ESD1E
+//  stopped at 22:57 in the video
 
 import UIKit
 import CoreData
@@ -16,12 +17,42 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
     var detailViewController: DetailViewController? = nil
     var managedObjectContext: NSManagedObjectContext? = nil
+    
+    final let BLOG_URL = "https://www.googleapis.com/blogger/v3/blogs/10861780/posts?key=AIzaSyArNaYx5m9W-BZek2zeOvyuUel0X5ESD1E"
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        let url = URL(string: BLOG_URL)
+        let task = URLSession.shared.dataTask(with: url!){
+            data,response,error in
+            if error != nil{
+                print(error)
+            }else{
+                if let urlContent = data {
+                    do{
+                        let jsonResult = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String:Any]
+                        //print(jsonResult)
+                        
+                        if let items = jsonResult["items"] as? NSArray{ //why is this an NSArray??? and not [String:Any]
+                            for item in items{
+                                if let val = item as? [String:Any]{
+                                    print(val["title"] as! String)
+                                    print(val["published"] as! String)
+                                    //print(val["content"] as! String)
+                                }
+                            }
+                        }
+                    }catch{
+                        print("Error parsing json")
+                    }
+                }
+            }
+        }
+        
+        task.resume()
     }
 
     override func didReceiveMemoryWarning() {
