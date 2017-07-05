@@ -13,3 +13,4 @@ Files for the Complete IOS10 Course on Udemy
 * Memorable Places: Connect all the peices together with location, state, & seques, https://www.evernote.com/l/AGXU-3IgsNhMmp6uM-zD9SkdwoZHBe6Oymo
 * Podcast Player: Simple AVPlayer for a local mp3 file, https://www.evernote.com/l/AGUsK8fquG9JkZDtRLGrzS_8P-if1n4kRlI
 * Simple Login From with Core Data, https://www.evernote.com/l/AGURzWOxABFH0Z13c5juu6g0eBFuShQKZhc
+* Blog Reader: Consumes a blogger url and displays a list with the titles. On click, uses a webview to load the content. https://www.evernote.com/l/AGWfbDu3FkdB15Bh-kpwW2YN5S2lgweu5j4

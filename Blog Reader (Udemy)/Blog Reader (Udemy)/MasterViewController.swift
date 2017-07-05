@@ -20,62 +20,20 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     
     final let BLOG_URL = "https://www.googleapis.com/blogger/v3/blogs/10861780/posts?key=AIzaSyArNaYx5m9W-BZek2zeOvyuUel0X5ESD1E"
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         let url = URL(string: BLOG_URL)
-        let task = URLSession.shared.dataTask(with: url!){
-            data,response,error in
-            if error != nil{
-                print(error)
-            }else{
-                if let urlContent = data {
-                    do{
-                        let jsonResult = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String:Any]
-                        //print(jsonResult)
-                        
-                        if let items = jsonResult["items"] as? NSArray{ //why is this an NSArray??? and not [String:Any]
-                            for item in items{
-                                if let val = item as? [String:Any]{
-                                    print(val["title"] as! String)
-                                    print(val["published"] as! String)
-                                    //print(val["content"] as! String)
-                                }
-                            }
-                        }
-                    }catch{
-                        print("Error parsing json")
-                    }
-                }
-            }
-        }
-        
-        task.resume()
+        loadData(with:url!)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
     func insertNewObject(_ sender: Any) {
-        let context = self.fetchedResultsController.managedObjectContext
-        let newEvent = Event(context: context)
-             
-        // If appropriate, configure the new managed object.
-        newEvent.timestamp = NSDate()
-
-        // Save the context.
-        do {
-            try context.save()
-        } catch {
-            // Replace this implementation with code to handle the error appropriately.
-            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            let nserror = error as NSError
-            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-        }
     }
 
     // MARK: - Segues
@@ -116,7 +74,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
 
     func configureCell(_ cell: UITableViewCell, withEvent event: Event) {
-        cell.textLabel!.text = event.timestamp!.description
+        cell.textLabel!.text = event.title?.description
     }
 
     // MARK: - Fetched results controller
@@ -132,7 +90,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         fetchRequest.fetchBatchSize = 20
         
         // Edit the sort key as appropriate.
-        let sortDescriptor = NSSortDescriptor(key: "timestamp", ascending: false)
+        let sortDescriptor = NSSortDescriptor(key: "published", ascending: false)
         
         fetchRequest.sortDescriptors = [sortDescriptor]
         
@@ -196,6 +154,74 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
          tableView.reloadData()
      }
      */
-
+    
+    func loadData(with url: URL){
+        let task = URLSession.shared.dataTask(with: url){
+            data,response,error in
+            if error != nil{
+                print(error)
+            }else{
+                if let urlContent = data {
+                    do{
+                        let jsonResult = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String:AnyObject]
+                        
+                        if let items = jsonResult["items"] as? [AnyObject]{
+                            let context = self.fetchedResultsController.managedObjectContext
+                            
+                            //flush local data cache
+                            let req = NSFetchRequest<Event>(entityName: "Event")
+                            do{
+                                let results = try context.fetch(req)
+                                if results.count>0{
+                                    for result in results{
+                                        context.delete(result)
+                                        do{
+                                            try context.save()
+                                        }catch{
+                                            print("failed to delete event: \(result)")
+                                        }
+                                    }
+                                }
+                            }catch{
+                                print("failed to delete events")
+                            }
+                            
+                            //populate with data from fetch
+                            for item in items{
+                                if let val = item as? [String:Any]{
+                                    print("title: \(val["title"] as! String)")
+                                    print("published: \(val["published"] as! String)")
+                                    //print(val["content"] as! String)
+                                    
+                                    let newEvent = Event(context: context)
+                                    
+                                    // If appropriate, configure the new managed object.
+                                    newEvent.timestamp = NSDate()
+                                    newEvent.setValue(item["published"] as! String, forKey: "published")
+                                    newEvent.setValue(item["title"] as! String, forKey: "title")
+                                    newEvent.setValue(item["content"] as! String, forKey: "content")
+                                    
+                                    // Save the context.
+                                    do {
+                                        try context.save()
+                                    } catch {
+                                        // Replace this implementation with code to handle the error appropriately.
+                                        // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                                        let nserror = error as NSError
+                                        fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+                                    }
+                                    
+                                }
+                            }
+                        }
+                        self.tableView.reloadData()
+                    }catch{
+                        print("Error parsing json")
+                    }
+                }
+            }
+        }
+        task.resume()
+    }
 }
 
