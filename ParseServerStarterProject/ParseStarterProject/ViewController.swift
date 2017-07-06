@@ -16,12 +16,16 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let testObject = PFObject(className: "TestObject2")
-        testObject["foo"] = "bar"
+        let name = "Wesley Reisz"
+        
+        //saving object
+        /*
+        let testObject = PFObject(className: "Users")
+        testObject["name"] = name
         testObject.saveInBackground { (success, error) -> Void in
             // added test for success 11th July 2016
             if success {
-                print("Object has been saved.")
+                print("Object \(name) has been saved.")
             } else {
                 if error != nil {
                     print (error)
@@ -30,7 +34,31 @@ class ViewController: UIViewController {
                 }
             }
         }
-    }
+        */
+        
+        //retrieving object
+        let query = PFQuery(className: "Users")
+        query.getObjectInBackground(withId: "VxP8nGB7Vs"){
+            (object,error) in
+            if error != nil{
+                print(error)
+            }else{
+                if let user = object{
+                    print(user)
+                    print(user["name"])
+                    
+                    user["name"]="kim"
+                    user.saveInBackground(){
+                     (success,error) in
+                        if success{
+                            print("saved")
+                        }else{
+                            print("error")
+                        }}
+                    }
+                }
+            }
+        }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
