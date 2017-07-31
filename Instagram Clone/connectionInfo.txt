@@ -1,0 +1,3 @@
+$0.applicationId = "6801a732ccf3688dba9d78ec4cda3f9e2d9501f9"
+            $0.clientKey = "1df9946f2f9684ac84087e403c6e966cc2d5c501"
+            $0.server = "http://ec2-34-212-6-6.us-west-2.compute.amazonaws.com/parse"
